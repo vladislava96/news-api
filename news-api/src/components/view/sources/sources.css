@@ -8,23 +8,35 @@
     font: 300 1em 'Fira Sans', sans-serif;
 }
 
+@media(max-width: 640px) {
+    main .sources {
+        display: none;
+    }
+}
+
 .source__item {
     background: none;
-    border: 2px solid #30c5ff;
+    border: 2px solid rgb(72, 90, 190);
     font: inherit;
     line-height: 1;
     margin: 0.5em;
     padding: 1em 2em;
-    color: #70d6ff;
-    transition: 0.25s;
+    color: rgb(72, 90, 190);
+    transition: 0.5s;
     cursor: pointer;
+}
+
+@media(max-width: 1000px) {
+    .source__item {
+        padding: 0.8em 1em;
+    }
 }
 
 .source__item:hover,
 .source__item:focus {
-    border-color: #3fcc59;
-    color: #69db7e;
-    box-shadow: 0 0.5em 0.5em -0.4em #3fcc59;
+    background: rgb(72, 90, 190);
+    color: #e7e7e8;
+    box-shadow: 0 0.5em 0.5em -0.4em #62646e;
     transform: translateY(-0.25em);
 }
 

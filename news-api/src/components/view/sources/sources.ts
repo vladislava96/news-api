@@ -20,7 +20,7 @@ class Sources {
             fragment.append(sourceClone);
         });
 
-        document.querySelector('.sources')?.append(fragment);
+        document.querySelector('main .sources')?.append(fragment);
     }
 }
 

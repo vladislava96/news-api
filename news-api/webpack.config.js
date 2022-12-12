@@ -2,6 +2,7 @@ const path = require('path');
 const { merge } = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 const baseConfig = {
     entry: path.resolve(__dirname, './src/index.ts'),
@@ -16,6 +17,10 @@ const baseConfig = {
                 test: /\.tsx?$/,
                 use: 'ts-loader',
                 exclude: /node_modules/,
+            },
+            {
+                test: /\.(png|svg|jpg|jpeg|gif)$/i,
+                type: 'asset/resource',
             },
         ],
     },
@@ -32,6 +37,9 @@ const baseConfig = {
             filename: 'index.html',
         }),
         new CleanWebpackPlugin(),
+        new CopyPlugin({
+            patterns: [{ from: './src/svg', to: './svg' }],
+        }),
     ],
 };
 
